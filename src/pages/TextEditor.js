@@ -3,6 +3,8 @@ import Quill from "quill"
 import "quill/dist/quill.snow.css"
 import { useParams } from "react-router-dom"
 import { SocketContext } from "../context/socketContext"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import notificacion from './../assets/notificacion.wav'
 
 const SAVE_INTERVAL_MS = 2000
@@ -27,6 +29,7 @@ export default function TextEditor() {
   const { id: documentId } = useParams()
   const { socket } = useContext(SocketContext)
   const [quill, setQuill] = useState()
+  const notify = (name) => toast.success(`${name} ha ingresado al documento`);
 
   // useEffect(() => {
   
@@ -62,7 +65,7 @@ export default function TextEditor() {
     if (socket == null || quill == null) return
 
     socket.on("load-document", document => {
-      console.log('Entro')
+      console.log('Entro en loading')
       quill.setContents(document)
       quill.enable()
     })
@@ -114,19 +117,20 @@ export default function TextEditor() {
 
   }, [socket, quill])
 
-  // useEffect(() => {
+  useEffect(() => {
     
-  //   if (socket == null || quill == null) return
+    if (socket == null || quill == null) return
 
-  //   socket.on('user-connected', ( name ) => {
-  //     console.log(name,' se ha conectado al documento')
-  //   })
+    socket.on('active-user', ( name ) => {
+      notify(name)
+    })
 
-  // }, [socket])
+  }, [socket])
 
   return (
     <>
       <div className="container" ref={wrapperRef}></div>
+      <ToastContainer position="bottom-left"/>
     </>
   )
   }
