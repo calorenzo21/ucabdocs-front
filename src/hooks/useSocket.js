@@ -15,7 +15,7 @@ export const useSocket = ( serverPath ) => {
         const socketTemp = io.connect( serverPath, {
           transports: ['websocket'],
           autoConnect: true,
-          forceNew: true,
+          forceNew: false,
           query: {
             'x-token': token
           }
