@@ -119,7 +119,7 @@ export default function TextEditor() {
 
   useEffect(() => {
     
-    if (socket == null || quill == null) return
+    if (socket === null) return
 
     socket.on('active-user', ( name ) => {
       notify(name)
