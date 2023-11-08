@@ -87,7 +87,7 @@ const Register = () => {
                         </form>
                     </div>
                     <div class="md:block hidden w-1/2">
-                        <img class="rounded-2xl" src={logo} />
+                        <img class="rounded-2xl" src={logo} alt='logo-img' />
                     </div>
                 </div>
             </section>

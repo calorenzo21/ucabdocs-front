@@ -21,7 +21,7 @@ const AppRouter = () => {
 
     useEffect( () => {
         checkToken()
-    }, [])
+    }, [checkToken])
     
     if ( auth.checking ){
         return <h1>Espere por favor</h1>

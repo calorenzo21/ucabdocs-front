@@ -3,12 +3,12 @@ import Quill from "quill"
 import "quill/dist/quill.snow.css"
 import { useParams } from "react-router-dom"
 import { SocketContext } from "../context/socketContext"
-import notificacion from './../assets/notificacion.wav'
+// import notificacion from './../assets/notificacion.wav'
 
 const SAVE_INTERVAL_MS = 2000
 
 
-const audio = new Audio(notificacion);
+// const audio = new Audio(notificacion);
 
 const TOOLBAR_OPTIONS = [
   [{ header: [1, 2, 3, 4, 5, 6, false] }],
