@@ -1,5 +1,5 @@
 
-const baseURL = 'https://ucabdocs-api-23cccedce5d8.herokuapp.com/api'
+const baseURL = 'https://api-ucabdocs-v1-e3f4067d244a.herokuapp.com/api'
 
 export const fetchSinToken = async ( endpoint, data, method = "GET") => {
 
